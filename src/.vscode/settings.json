@@ -1,0 +1,29 @@
+{
+    "cmake.sourceDirectory": "/home/heewoo/ros2_ws/src/hangman_interfaces",
+    "python.autoComplete.extraPaths": [
+        "/home/heewoo/ros2_ws/install/ros_study_py/lib/python3.10/site-packages",
+        "/home/heewoo/ros2_ws/install/ex_calculator/lib/python3.10/site-packages",
+        "/home/heewoo/ros2_ws/install/ros_study_msgs/local/lib/python3.10/dist-packages",
+        "/home/heewoo/ros2_ws/install/py_pubsub/lib/python3.10/site-packages",
+        "/home/heewoo/ros2_ws/install/my_package1212/lib/python3.10/site-packages",
+        "/home/heewoo/ros2_ws/install/my_first_package/lib/python3.10/site-packages",
+        "/home/heewoo/ros2_ws/build/hangman_game",
+        "/home/heewoo/ros2_ws/install/hangman_game/lib/python3.10/site-packages",
+        "/home/heewoo/ros2_ws/install/hangman_interfaces/local/lib/python3.10/dist-packages",
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "/home/heewoo/ros2_ws/install/ros_study_py/lib/python3.10/site-packages",
+        "/home/heewoo/ros2_ws/install/ex_calculator/lib/python3.10/site-packages",
+        "/home/heewoo/ros2_ws/install/ros_study_msgs/local/lib/python3.10/dist-packages",
+        "/home/heewoo/ros2_ws/install/py_pubsub/lib/python3.10/site-packages",
+        "/home/heewoo/ros2_ws/install/my_package1212/lib/python3.10/site-packages",
+        "/home/heewoo/ros2_ws/install/my_first_package/lib/python3.10/site-packages",
+        "/home/heewoo/ros2_ws/build/hangman_game",
+        "/home/heewoo/ros2_ws/install/hangman_game/lib/python3.10/site-packages",
+        "/home/heewoo/ros2_ws/install/hangman_interfaces/local/lib/python3.10/dist-packages",
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    ]
+}
