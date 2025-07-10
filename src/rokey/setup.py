@@ -34,7 +34,7 @@ setup(
             'server=rokey.basic.server_example:main',
             'client=rokey.basic.client_example:main',
             'client_gui=rokey.basic.client_example_gui:main',
-            'ttt_number=rokey.basic.ttt_number:main',
+            'ttt_number=rokey.ticktacktoe.ttt_number:main',
                         
             
         ],
