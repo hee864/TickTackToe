@@ -125,33 +125,33 @@ python3 src/rokey/rokey/ticktacktoe/gui_ex.py
 
 🎮 시뮬레이션 상의 틱택토 게임 구현 (test.py, ttt_sim.py)
 
-    GUI를 통해 사용자가 틱택토 게임을 플레이하면
-    로봇이 movec 명령으로 실제 보드에 'O'를 그리고 승패를 판정합니다.
+ -   GUI를 통해 사용자가 틱택토 게임을 플레이하면
+ -   로봇이 movec 명령으로 실제 보드에 'O'를 그리고 승패를 판정합니다.
 
-    Gazebo 환경에서 실행되는 시뮬레이션 기반 서버 구현
+  -  Gazebo 환경에서 실행되는 시뮬레이션 기반 서버 구현
 ![sim](image/simulationver.gif)
 
 📦 힘 제어 & 순응 제어 기반 블록 정렬 (heewoo.py)
-[![블록정렬]](https://youtu.be/pemCm9gFjXA)
+[![블록 정렬 데모](https://img.youtube.com/vi/pemCm9gFjXA/0.jpg)](https://youtu.be/pemCm9gFjXA)
 
-    Z축 방향 힘 감지로 블록 길이를 측정하고,
-    이를 기준으로 짧은/중간/긴 블록을 서로 다른 위치로 분류
 
-    2FG 그리퍼를 사용해 그립/릴리즈 동작 포함
+  -  Z축 방향 힘 감지로 블록 길이를 측정하고 이를 기준으로 짧은/중간/긴 블록을 서로 다른 위치로 분류
 
-    총 9개 블록에 대해 자동 분류 실행
+  -  2FG 그리퍼를 사용해 그립/릴리즈 동작 포함
+
+   - 총 9개 블록에 대해 자동 분류 실행
 
 🦾 움직임 테스트 파일들
 	파일명	설명
-	move.py	MoveJ → MoveL 명령을 이용해 기본 위치 이동을 반복 수행
-	move_periodic.py	amove_periodic 명령으로 툴 기준 회전 진동 테스트 (Rx, Rz 등)
-	movesx_test.py	X-Y 평면 상의 사인 궤적을 따라 연속적으로 이동 (곡선 경로 테스트)
-	block.py	순응 제어 + Z축 진동(move_periodic)으로 블록 감지 및 파지
-	force_control.py	원하는 Z축 방향 힘을 설정한 뒤, 힘이 감지될 때까지 이동 후 정지
-	getting_position.py	정해진 여러 위치로 이동하며, 각 위치에서의 실제 posx 값을 출력
-	get_current_pos.py	현재 위치(posx, posj)를 GUI 상에 실시간으로 표시하고 복사
-	grip.py	디지털 출력 기반 그리퍼 개폐 동작 반복 테스트
-	jog_complete.py	GUI 기반으로 조인트/직교 이동 + 그리퍼 조작 + 위치 복사 기능 통합
+-	move.py	MoveJ → MoveL 명령을 이용해 기본 위치 이동을 반복 수행
+-	move_periodic.py	amove_periodic 명령으로 툴 기준 회전 진동 테스트 (Rx, Rz 등)
+-	movesx_test.py	X-Y 평면 상의 사인 궤적을 따라 연속적으로 이동 (곡선 경로 테스트)
+-	block.py	순응 제어 + Z축 진동(move_periodic)으로 블록 감지 및 파지
+-	force_control.py	원하는 Z축 방향 힘을 설정한 뒤, 힘이 감지될 때까지 이동 후 정지
+-	getting_position.py	정해진 여러 위치로 이동하며, 각 위치에서의 실제 posx 값을 출력
+-	get_current_pos.py	현재 위치(posx, posj)를 GUI 상에 실시간으로 표시하고 복사
+-	grip.py	디지털 출력 기반 그리퍼 개폐 동작 반복 테스트
+-	jog_complete.py	GUI 기반으로 조인트/직교 이동 + 그리퍼 조작 + 위치 복사 기능 통합
 
 ## 📡 ROS2 통신 기능
 
