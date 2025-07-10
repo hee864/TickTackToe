@@ -132,6 +132,7 @@ python3 src/rokey/rokey/ticktacktoe/gui_ex.py
 ![sim](image/simulationver.gif)
 
 📦 힘 제어 & 순응 제어 기반 블록 정렬 (heewoo.py)
+![block](image/block.jpg)
 [![블록 정렬 데모](https://img.youtube.com/vi/pemCm9gFjXA/0.jpg)](https://youtu.be/pemCm9gFjXA)
 
 
