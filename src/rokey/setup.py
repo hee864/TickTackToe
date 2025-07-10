@@ -19,6 +19,8 @@ setup(
     entry_points={
         "console_scripts": [
             "simple_amove=rokey.basic.amove_test:main",
+            "block=rokey.basic.block:main",
+            "data_recording=rokey.basic.data_recording:main",
             "force_control = rokey.basic.force_control:main",
             "get_current_pos=rokey.basic.get_current_pos:main",
             "getting_position = rokey.basic.getting_position:main",
@@ -27,13 +29,9 @@ setup(
             "move_periodic = rokey.basic.move_periodic:main",
             "simple_move=rokey.basic.move:main",
             "simple_movesx=rokey.basic.movesx_test:main",
-            "data_recording=rokey.basic.data_recording:main",
-            'ttt=rokey.basic.ticktacktoe:main',
-            'ttt_sim=rokey.basic.ttt_sim:main',
-            'test=rokey.basic.test:main',
-            'server=rokey.basic.server_example:main',
-            'client=rokey.basic.client_example:main',
-            'client_gui=rokey.basic.client_example_gui:main',
+            
+            
+            'ttt_sim=rokey.ticktacktoe.ttt_sim:main',       
             'ttt_number=rokey.ticktacktoe.ttt_number:main',
                         
             

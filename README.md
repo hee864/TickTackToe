@@ -16,31 +16,38 @@
 ```
 .
 ├── README.md
+│   └─ 프로젝트 개요 및 실행 방법 안내
 └── src
     ├── LICENSE
+    │   └─ 프로젝트 라이선스 (예: MIT, Apache 2.0)
     └── rokey
         ├── package.xml
+        │   └─ ROS2 패키지 메타 정보
         ├── resource/
+        │   └─ rokey 관련 리소스 파일 (필수 구조)
         ├── rokey/
         │   ├── basic/
         │   │   ├── block.py              # 순응제어 + 진동 기반 블록 파지
-        │   │   ├── force_control.py      # 힘 조건 만족 시 멈춤
-        │   │   ├── get_current_pos.py    # 현재 위치 GUI 출력
-        │   │   ├── getting_position.py   # 이동 후 위치 출력
-        │   │   ├── grip.py               # 그리퍼 반복 동작
-        │   │   ├── jog_complete.py       # 조인트/직교 이동 GUI
-        │   │   ├── move.py               # 기본 위치 이동
-        │   │   ├── move_periodic.py      # 회전 진동 제어
-        │   │   ├── movesx_test.py        # 사인 궤적 이동
-        │   │   ├── ros2topictic.py       # ROS2 기반 틱택토 노드
-        │   │   ├── server_example.py     # 랜덤 응답 테스트 서버
-        │   │   ├── test.py               # 틱택토 로직 + movec 원 그리기
-        │   │   └── ttt_sim.py            # 가상 모드 틱택토 서버
+        │   │   ├── force_control.py      # 힘 조건 만족 시 정지
+        │   │   ├── get_current_pos.py    # 현재 위치 실시간 GUI 출력 및 복사
+        │   │   ├── getting_position.py   # 이동 후 위치 출력 및 기록
+        │   │   ├── grip.py               # 그리퍼 개폐 반복 동작 테스트
+        │   │   ├── jog_complete.py       # 조인트/직교 이동 GUI + 그리퍼 + 복사 기능
+        │   │   ├── move.py               # 기본 위치 간 MoveJ / MoveL 테스트
+        │   │   ├── move_periodic.py      # amove_periodic을 활용한 진동 테스트
+        │   │   ├── movesx_test.py        # 사인 곡선을 따라 연속 이동 (movesx 사용)
+        │   │   ├── ros2topictic.py       # ROS2 기반 틱택토 게임 노드
+        │   │   ├── heewoo.py             # 힘 감지로 블록 높이를 측정하여 크기별로 정렬
+        │   │   └── data_recording.py     # 로봇 위치 + 카메라 이미지 저장 (캘리브레이션용)
+        │
         │   └── ticktacktoe/
-        │       ├── gui_ex.py             # GUI 클라이언트 (Tkinter)
-        │       └── ttt_number.py         # 틱택토 실행 서버
-        ├── setup.cfg
-        └── setup.py
+        │       ├── gui_ex.py             # 사용자 입력용 Tkinter GUI 클라이언트
+        │       ├── ttt_number.py         # 틱택토 상태 판별 및 서버 로직
+        │       ├── test.py               # movec 기반 O그리기 + 가상 틱택토 실행
+        │       └── ttt_sim.py            # 가상 모드 틱택토 서버 실행 스크립트
+        ├── setup.cfg                    # Python 패키지 설정 정보
+        └── setup.py                     # 패키지 설치 및 배포용 스크립트
+
 ```
 
 ---
@@ -115,12 +122,35 @@ python3 src/rokey/rokey/ticktacktoe/gui_ex.py
 ## 🧩 basic 파일 미니 프로젝트  
 
 
-### 시뮬레이션 상의 틱택토 게임 구현 (test.py / ttt_sim.py)
+🎮 시뮬레이션 상의 틱택토 게임 구현 (test.py, ttt_sim.py)
+
+    GUI를 통해 사용자가 틱택토 게임을 플레이하면
+    로봇이 movec 명령으로 실제 보드에 'O'를 그리고 승패를 판정합니다.
+
+    Gazebo 환경에서 실행되는 시뮬레이션 기반 서버 구현
 ![sim](image/simulationver.gif)
 
-### 힘제어 순응제어 활용하여 블록 크기 재고 크기 순으로 정렬 (heewoo.py)
+📦 힘 제어 & 순응 제어 기반 블록 정렬 (heewoo.py)
+[![블록정렬]](https://youtu.be/pemCm9gFjXA)
 
-### 움직임 테스트 파일들 
+    Z축 방향 힘 감지로 블록 길이를 측정하고,
+    이를 기준으로 짧은/중간/긴 블록을 서로 다른 위치로 분류
+
+    2FG 그리퍼를 사용해 그립/릴리즈 동작 포함
+
+    총 9개 블록에 대해 자동 분류 실행
+
+🦾 움직임 테스트 파일들
+	파일명	설명
+	move.py	MoveJ → MoveL 명령을 이용해 기본 위치 이동을 반복 수행
+	move_periodic.py	amove_periodic 명령으로 툴 기준 회전 진동 테스트 (Rx, Rz 등)
+	movesx_test.py	X-Y 평면 상의 사인 궤적을 따라 연속적으로 이동 (곡선 경로 테스트)
+	block.py	순응 제어 + Z축 진동(move_periodic)으로 블록 감지 및 파지
+	force_control.py	원하는 Z축 방향 힘을 설정한 뒤, 힘이 감지될 때까지 이동 후 정지
+	getting_position.py	정해진 여러 위치로 이동하며, 각 위치에서의 실제 posx 값을 출력
+	get_current_pos.py	현재 위치(posx, posj)를 GUI 상에 실시간으로 표시하고 복사
+	grip.py	디지털 출력 기반 그리퍼 개폐 동작 반복 테스트
+	jog_complete.py	GUI 기반으로 조인트/직교 이동 + 그리퍼 조작 + 위치 복사 기능 통합
 
 ## 📡 ROS2 통신 기능
 
