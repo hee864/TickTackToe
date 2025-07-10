@@ -112,17 +112,15 @@ python3 src/rokey/rokey/ticktacktoe/gui_ex.py
 
 ---
 
-## 🧩 주요 구성 모듈 요약
+## 🧩 basic 파일 미니 프로젝트  
 
-### 📦 블록 진동 및 파지 제어 (`block.py`)
-- `task_compliance_ctrl`, `set_desired_force`, `move_periodic` 사용
-- Z축 진동 후 힘 해제 → 위로 파지
 
-### 🖱 Jog UI (`jog_complete.py`)
-- Tkinter 기반 조작 인터페이스
-- 조인트 / 직교 이동 + 증분 버튼 + Z축 정렬 + 좌표 복사 지원
+### 시뮬레이션 상의 틱택토 게임 구현 (test.py / ttt_sim.py)
+![sim](image/simulationver.gif)
 
----
+### 힘제어 순응제어 활용하여 블록 크기 재고 크기 순으로 정렬 (heewoo.py)
+
+### 움직임 테스트 파일들 
 
 ## 📡 ROS2 통신 기능
 
@@ -132,16 +130,6 @@ python3 src/rokey/rokey/ticktacktoe/gui_ex.py
 
 ---
 
-## 🧪 test/ 디렉터리 요약
-
-| 파일명 | 설명 |
-|--------|------|
-| `test.py` | 틱택토 로직 전체 테스트 + `movec()`로 원 그리기 |
-| `ttt_sim.py` | 가상 모드 기반 틱택토 서버 (단순 위치 이동) |
-| `server_example.py` | 입력을 받아 랜덤 위치 반환하는 서버 예제 |
-| `move.py`, `grip.py`, `force_control.py` 등 | 각 기능 단위 테스트 (모션, 진동, 그리퍼 등) |
-
----
 
 ## ✨ 향후 확장 가능성
 
